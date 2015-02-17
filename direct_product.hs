@@ -8,4 +8,5 @@ main = do
         b = Point 1 1
         c = offset a b
     print c
+    print $ offset (Point 2 3) (Point 2 3)
 
