@@ -1,6 +1,8 @@
-data Test = Point Int Int
-          | Rect Int Int Int Int
-          | Point3D Int Int Int
+data Point = Point   Int Int
+           | Point3D Int Int Int
+           deriving Show
+
+data Rect = Rect   Int Int Int Int
           | Rect3D Int Int Int Int Int Int
           deriving Show
 
@@ -8,7 +10,9 @@ contains (Rect x y w h) (Point px py) =
     x <= px && px < x + w && y <= py && py < y + h
 
 contains (Rect3D x y z w h d) (Point3D px py pz) =
-    x <= px && px < x + w && y <= py && py < y + h && z <= pz && pz < z + d
+    x <= px && px < x + w &&
+    y <= py && py < y + h &&
+    z <= pz && pz < z + d
 
 main = do
     print $ contains (Rect 2 2 3 3) (Point 1 1)
